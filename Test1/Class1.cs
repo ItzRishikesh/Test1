@@ -7,18 +7,19 @@ using System.Threading.Tasks;
 
 namespace Test1
 {
-    public class BinarySearchPrograms
+    public static class BinarySearchPrograms
     {
         //Simple Binary Search 
         //It require Sorted array
-       public static int BinarySearch(int[] arr,int target)
+        public static int BinarySearch(int[] arr, int target)
         {
             int left = 0;
-            int right = arr.Length-1;
-            while (left<right)
+            int right = arr.Length - 1;
+            while (left < right)
             {
-                int mid=left+(right-left)/2;
-                if (arr[mid]==target)
+                int mid = left + (right - left) / 2;
+                
+                if (arr[mid] == target)
                     return mid;
                 if (arr[mid] < target)
                     left = mid + 1;
@@ -42,7 +43,7 @@ namespace Test1
                 return -1;
             }
             int left = 0;
-            int right = arr.Length-1;
+            int right = arr.Length - 1;
             while (left < right)
             {
                 int mid = left + (right - left) / 2;
@@ -63,60 +64,99 @@ namespace Test1
         /// <returns>Integer</returns>
         public static int FlooreOfTarget(int[] arr, int target)
         {
-            if (target>arr[arr.Length-1])
+            if (target > arr[arr.Length - 1])
             {
                 return -1;
             }
-            int start= 0;
-            int end=arr.Length-1;
-            while (start<=end)
+            int start = 0;
+            int end = arr.Length - 1;
+            while (start <= end)
             {
-                int mid=start+(end-start)/2;
-                if (arr[mid]==target)
+                int mid = start + (end - start) / 2;
+                if (arr[mid] == target)
                     return mid;
                 if (target < arr[mid])
                 {
                     end = mid - 1;
 
-                }else if(target > arr[mid])
+                }
+                else if (target > arr[mid])
                 {
                     start = mid + 1;
-                }else
+                }
+                else
                     return mid;
             }
             return end;
         }
 
-        public static char SmallestLettar()
+        public static int[] SearchElementIn2Dmatrix(int[][] arr, int target)
         {
-
+            int r = 0;
+            int c = arr.Length - 1;
+            while (r < arr.Length && c >= 0)
+            {
+                if (arr[r][c] == target)
+                {
+                    return new int[] { r, c };
+                }
+                if (arr[r][c] < target)
+                {
+                    r++;
+                }
+                else
+                {
+                    c--;
+                }
+            }
+            return new int[] { -1, -1 };
         }
+
 
     }
 
+
+    public sealed class SingletonDemo
+    {
+        private SingletonDemo() { }
+
+        private static SingletonDemo instance = null;
+
+        public static SingletonDemo MyProperty
+        {
+            get
+            {
+                if (instance is null)
+                {
+                    instance = new SingletonDemo();
+                }
+                return instance;
+            }
+        }
+    }
     public static class Sorting
     {
-        public static void ArrayQuickSort(int[]arr,int low,int hi)
+        public static void ArrayQuickSort(int[] arr, int low, int hi)
         {
-            if (low>=hi)
+            if (low >= hi)
             {
                 return;
             }
             int s = low;
-            int e=hi;
-            int m = low + (e-s) / 2;
+            int e = hi;
+            int m = low + (e - s) / 2;
             int pivot = arr[m];
-            while (s<=e)
+            while (s <= e)
             {
-                while (arr[s]<pivot)
+                while (arr[s] < pivot)
                 {
                     s++;
                 }
-                while (arr[e]>pivot)
+                while (arr[e] > pivot)
                 {
                     e--;
                 }
-                if (s<=e)
+                if (s <= e)
                 {
                     int temp = arr[s];
                     arr[s] = arr[e];
@@ -129,6 +169,8 @@ namespace Test1
             ArrayQuickSort(arr, s, hi);
 
         }
-        
+
     }
+
+
 }
