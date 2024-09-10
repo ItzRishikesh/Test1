@@ -8,6 +8,11 @@ namespace DataStructuresAndAlgorithms
 {
     public class SpiralMatrix
     {
+        /// <summary>
+        /// Given an m x n matrix, return all elements of the matrix in spiral order.
+        /// </summary>
+        /// <param name="matrix"></param>
+        /// <returns></returns>
         public IList<int> SpiralOrder(int[][] matrix)
         {
             IList<int> res = new List<int>();
