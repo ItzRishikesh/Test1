@@ -10,7 +10,7 @@ namespace DataStructuresAndAlgorithms.LinkedList
     {
        
         //This is the Start node of the linked list chain
-        Node head = null;
+        Node? head = null;
         public void AddToLast(object data)
         {
             Node newItem = new Node();
@@ -41,8 +41,8 @@ namespace DataStructuresAndAlgorithms.LinkedList
         }
         public void ReadAll()
         {
-            Node current = head;
-            while (current.next is not null)
+            Node? current = head;
+            while (current?.next is not null)
             {
                 Console.WriteLine(current.data);
 

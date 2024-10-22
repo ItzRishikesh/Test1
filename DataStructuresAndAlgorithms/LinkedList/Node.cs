@@ -9,7 +9,7 @@ namespace DataStructuresAndAlgorithms.LinkedList
     //Represents Node
     public class Node
     {
-         public Object data ;
-        public Node next;
+         public Object? data ;
+        public Node? next;
     }
 }
